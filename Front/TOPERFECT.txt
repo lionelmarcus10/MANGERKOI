@@ -1,0 +1,17 @@
+Start.js
+
+    - add buttun with pressable
+    - add link 
+    - add animation
+
+LogoDisplay:
+    - add animation
+    - Link to Start.js
+
+LogInjs and SignUp.js
+    - add animation
+    - add firebase functions / configuration
+    - add log verification infos before switch
+    - add link to NavButtun.js
+    - add waves and icons
+    - link icons to return back

@@ -5,7 +5,6 @@ import {
     StyleSheet,
     Image
 } from "react-native";
-import tw from 'twrnc';
 
 class Category extends Component {
     render() {
@@ -16,15 +15,15 @@ class Category extends Component {
                         style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}
                     />
                 </View>
-                <View style={[tw`mx-auto`,{ flex: 1, paddingTop: 5 }]}>
-                    <Text style={[tw`font-medium text-sm`]}>{this.props.name}</Text>
+                <View className="mx-auto" style={[{ flex: 1, paddingTop: 5 }]}>
+                    <Text className="font-medium text-sm" style={[]}>{this.props.name}</Text>
                 </View>
             </View>
         );
     }
 }
-export default Category;
 
+// { this.props.duration == undefined ? console.log(undefined) : <Text>{this.props.duration}</Text> }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -32,3 +31,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 });
+
+export default Category;

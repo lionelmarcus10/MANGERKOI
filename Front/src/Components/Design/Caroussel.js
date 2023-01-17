@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {View, Text, StyleSheet, FlatList, Image, Dimensions} from 'react-native';
 import Animated, {interpolate, Extrapolate, useSharedValue, useAnimatedStyle} from "react-native-reanimated";
-import tw from 'twrnc';
 const SRC_WIDTH = Dimensions.get("window").width;
 const CARD_LENGTH = SRC_WIDTH * 0.6;
 const SPACING = SRC_WIDTH * 0.02;
@@ -49,9 +48,9 @@ function Item({index, scrollX}){
   })
 
   return(
-    <Animated.View style={[styles.card, cardStyle,tw`mx-2`,]}>
+    <Animated.View style={[styles.card, cardStyle]} className="mx-2">
       <Image 
-        source={require("./images/img1.jpg")}
+        source={require("../../Assets/img1.jpg")}
         style={{width: "100%", height: "100%"}}
       />
       <Text>000</Text>

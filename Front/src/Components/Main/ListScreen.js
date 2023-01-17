@@ -4,7 +4,7 @@ import React from 'react'
 export default function ListScreen() {
   return (
     <View>
-      <Text>ListScreen</Text>
+      <Text >ListScreen</Text>
     </View>
   )
 }
