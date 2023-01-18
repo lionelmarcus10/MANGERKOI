@@ -15,3 +15,12 @@ LogInjs and SignUp.js
     - add link to NavButtun.js
     - add waves and icons
     - link icons to return back
+    - box shadow
+
+ListScree.js
+    - add animation
+    - add state management 
+    - relier to firebase / database
+
+
+-désactiver scrollbar

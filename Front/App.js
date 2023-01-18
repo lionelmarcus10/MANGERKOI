@@ -4,7 +4,7 @@ import SignUp from './src/Log/SignUp';
 export default function App() {
   return (
     <View style={styles.container}>
-      <SignUp/>
+      <NavigationBar/>
       <StatusBar/>
     </View>
   );

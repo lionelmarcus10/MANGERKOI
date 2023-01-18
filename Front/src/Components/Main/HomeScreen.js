@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, ScrollView,Dimensions, Pressable } from 'react-native'
+import { View,Image, Text, SafeAreaView, ScrollView,Dimensions, Pressable } from 'react-native'
 import React, { useState } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import Carousel from '../Design/Caroussel';
@@ -46,10 +46,10 @@ const HomeScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View className="flex flex-row flex-nowrap pt-6 justify-around px-3">
+        <View className="flex flex-row flex-nowrap pt-6 justify-center items-center px-6">
           <Text className="text-center font-medium text-3xl mx-auto pl-25 flex-1">Acceuil</Text>
-          <View className="w-25 justify-center">
-            <Text className="text-center">icone</Text>
+          <View className="justify-center items-center  w-[50px] h-[50px] sm:w-[70px] sm:h-[70px]">
+            <Image source={require('../../Assets/img1.jpg')} className="w-full h-full rounded-full"/>
           </View>
         </View>
         <ScrollView className="">
