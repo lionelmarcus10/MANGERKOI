@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import NavigationBar from './src/Mynav/Nav';
+import Login from './src/Log/LogIn';
 import SignUp from './src/Log/SignUp';
+import Start from './src/Log/Start';
 export default function App() {
   return (
     <View style={styles.container}>
-      <NavigationBar/>
+      <Start/>
       <StatusBar/>
     </View>
   );

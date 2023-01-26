@@ -10,12 +10,10 @@ LogoDisplay:
 
 LogInjs and SignUp.js
     - add animation
-    - add firebase functions / configuration
     - add log verification infos before switch
     - add link to NavButtun.js
-    - add waves and icons
     - link icons to return back
-    - box shadow
+    - box shadow BUTTUN 
 
 ListScree.js
     - add animation

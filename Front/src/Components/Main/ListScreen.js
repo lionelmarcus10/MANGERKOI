@@ -22,14 +22,14 @@ export default function ListScreen() {
             <TextInput placeholder='Ajouter à la liste' className="p-1 sm:p-3 sm:text-lg font-bold w-full"/>
         </View>
 
-        <View className="flex flex-col flex-nowrap justify-center items-start space-y-3">
+        <View className="flex flex-col flex-nowrap justify-center items-start space-y-2">
           <Text className="text-xl font-bold text-gray-400 text-left">Il vous faut</Text>
           <View className="w-full">
             <VirtualizedList
                   data={data_test}
                   initialNumToRender={1}
                   keyExtractor={item => item.id} 
-                  renderItem={({item}) => <Text className="py-[1.5px] font-bold text-xl">{item.name}</Text>} 
+                  renderItem={({item}) => <Text className="py-[1.5px] font-bold text-[17px]">{item.name}</Text>} 
                   getItemCount={(data) => data_test.length}
                   getItem={(data, index) => 
                     ({ 
@@ -43,14 +43,14 @@ export default function ListScreen() {
           </View>
         </View>
 
-        <View className="flex flex-col flex-nowrap justify-center items-start space-y-3">
+        <View className="flex flex-col flex-nowrap justify-center items-start space-y-2">
           <Text className="text-xl font-bold text-gray-400 text-left">Dans les menus de cette semaine</Text>
           <View className="w-full">
           <VirtualizedList
                   data={data_test}
                   initialNumToRender={1}
                   keyExtractor={item => item.id} 
-                  renderItem={({item}) => <Text className="py-[1.5px] font-bold text-xl">{item.name}</Text>} 
+                  renderItem={({item}) => <Text className="py-[1.5px] font-bold text-[17px]">{item.name}</Text>} 
                   getItemCount={(data) => data_test.length}
                   getItem={(data, index) => 
                     ({ 
