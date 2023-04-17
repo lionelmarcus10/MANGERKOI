@@ -1,4 +1,4 @@
-import { View, Text,TextInput, TouchableOpacity } from 'react-native'
+import { View, Text,TextInput, TouchableOpacity, ImageBackground,StyleSheet } from 'react-native'
 import React, { useState} from 'react'
 import LogTop from '../Assets/LogTop.svg'
 import LogBottom from '../Assets/LogBottom.svg'
@@ -8,23 +8,23 @@ import Authfunc from '../Firebase/Auth'
 
 
 
-const Login = () => {
+const Login = ({navigation}) => {
   
   const [mail, setMail] = useState("")
   const [password, setPassword] = useState("")
   const [validity, setValidity] = useState("false")
+  
   const ConnectToAccount = () => {
-    
     let connector = new Authfunc()
     let result = connector.Login(mail,password)
     console.log(result)
   }
   return (
     
-      <View className="h-full flex justify-between bg-[#F3F3F3]">
+      <View className="h-full flex flex-col justify-between bg-[#F3F3F3]">
 
       <View className="self-end">
-        <LogTop/>
+        <LogTop />
         <View className="absolute top-9 left-44">
           <AddUser width={50} height={50}/>
         </View>
@@ -54,7 +54,7 @@ const Login = () => {
 
         <View className="self-start">
             <LogBottom/>
-            <TouchableOpacity className="absolute bottom-6 right-40">
+            <TouchableOpacity className="absolute bottom-6 right-40" onPress={navigation.goBack}>
               <FontAwesome name="long-arrow-left" size={35} color="white"/>
             </TouchableOpacity>
         </View>
@@ -64,5 +64,11 @@ const Login = () => {
     
   )
 }
+
+const styles = StyleSheet.create({
+ /* back : {
+    background: 
+  }*/
+})
 
 export default Login

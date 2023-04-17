@@ -6,16 +6,19 @@ import {
     Image
 } from "react-native";
 
+
+// width height flex as props
+// display like buttun and durations : props
 class Category extends Component {
     render() {
         return (
-            <View style={{ height: 110, width: 120, marginLeft: 10, borderWidth: 0.5, borderColor: '#dddddd' , marginRight: 8}}>
+            <View className="rounded-md bg-white" style={ [styles.shadow ,{ height: 110, width: 120, marginLeft: 10, borderWidth: 0.8, borderColor: '#dddddd' , marginRight: 8}]}>
                 <View style={{ flex: 3 }}>
-                    <Image source={this.props.imageUri}
+                    <Image className="rounded-t-md" source={this.props.imageUri}
                         style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}
                     />
                 </View>
-                <View className="mx-auto" style={[{ flex: 1, paddingTop: 5 }]}>
+                <View className="mx-auto" style={[{ flex: 0.75, paddingTop: 5 }]}>
                     <Text className="font-medium text-sm" style={[]}>{this.props.name}</Text>
                 </View>
             </View>
@@ -29,6 +32,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    shadow:{
     }
 });
 

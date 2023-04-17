@@ -5,7 +5,7 @@ import { SimpleLineIcons } from '@expo/vector-icons'
 const data_test =  ["Essuis tout","Sac poubelle", "Mouchoir en boite","Shampoing", "Piles AAA","Dentifrice","Produits WC"];
 const data_test2 = ["x3 Poirreaux","400g Lardons", "5 oignons", "700g Potiron","Muscade en poudre", "Olives vertes", "Basilic"];
 //
-export default function ListScreen() {
+export default function ListScreen({navigation}) {
   
   return (
     <SafeAreaView className="px-6 space-y-5 sm:px-12">

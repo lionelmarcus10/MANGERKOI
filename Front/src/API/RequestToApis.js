@@ -1,5 +1,5 @@
-let API_KEY_SPOONCULAR = "0779ffc16736401387035fc7fc83f6d7"
-
+let API_KEY_SPOONCULAR = "19755ba3103c4b549ae9eea21ed0b206"
+let API_KEY_SPOONCULAR2 = ""
 
 /* template
 
@@ -49,13 +49,22 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = "https://api.spoonacular.com/recipes/random?apiKey=0779ffc16736401387035fc7fc83f6d7"
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=10`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
-
+    let RandomReciepeParsed = [];
+    for(let rec in RandomReciepe.recipes){
+      RandomReciepeParsed.push({
+        id: RandomReciepe.recipes[rec].id,
+        title: RandomReciepe.recipes[rec].title,
+        image: RandomReciepe.recipes[rec].image,
+        readyInMinutes: RandomReciepe.recipes[rec].readyInMinutes,
+        //analyzedInstructions: RandomReciepe.recipes[rec].analyzedInstructions || lancer requette pour connaitre les ingredients et instructions
+      })
+    }
     // return essential data
-    
+    return (RandomReciepeParsed)
   }
   ReciepeById() {}
   ReciepeByWordMatchInTitle() {}
@@ -75,3 +84,17 @@ class RequestToApis {
 }
 
 export default RequestToApis
+
+
+
+/*
+
+RandomReciepeParsed.push({
+        id: rec.id,
+        title: rec.title,
+        image: rec.image,
+        readyInMinutes: rec.readyInMinutes,
+        analyzedInstructions: rec.analyzedInstructions
+      })
+    
+*/

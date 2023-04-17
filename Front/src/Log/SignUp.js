@@ -6,7 +6,7 @@ import AddUser from '../Assets/AddUser.svg'
 import {Octicons, FontAwesome} from '@expo/vector-icons'
 import Authfunc from '../Firebase/Auth'
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const testcreation = ()=>{
     let insc = new Authfunc()
     insc.Signup("lio@mail.com","123456")
@@ -45,7 +45,7 @@ const SignUp = () => {
         
         <View className="self-start">
             <LogBottom/>
-            <TouchableOpacity className="absolute bottom-6 right-40">
+            <TouchableOpacity className="absolute bottom-6 right-40" onPress={navigation.goBack}>
               <FontAwesome name="long-arrow-left" size={35} color="white"/>
             </TouchableOpacity>
         </View>

@@ -1,12 +1,20 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from '../Log/LogIn';
+import SignUp from '../Log/SignUp';
+import Start from '../Log/Start';
+
+const Stack = createStackNavigator();
 
 const LogStack = () => {
   return (
-    <View>
-      <Text>LogStack</Text>
-    </View>
-  )
+  
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Start" component={Start} options={{ animationTypeForReplace: "pop"}}/>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+        </Stack.Navigator>
+    
+  );
 }
 
-export default LogStack
+export default LogStack;

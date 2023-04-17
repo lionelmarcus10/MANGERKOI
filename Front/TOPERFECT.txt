@@ -15,10 +15,15 @@ LogInjs and SignUp.js
     - link icons to return back
     - box shadow BUTTUN 
 
-ListScree.js
+ListScreen.js
     - add animation
     - add state management 
     - relier to firebase / database
 
 
 -désactiver scrollbar
+
+- Logstack pop push : https://reactnavigation.org/docs/stack-navigator#animations
+
+
+- 

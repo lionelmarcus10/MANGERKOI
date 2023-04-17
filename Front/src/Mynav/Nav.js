@@ -1,5 +1,4 @@
 import { View, Text,StyleSheet } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from 'react-native-vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -20,7 +19,7 @@ const Tab = createBottomTabNavigator();
 
 export default function NavigationBar() {
   return (
-    <NavigationContainer>
+    
       <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: [
         { position: 'absolute',height:60, shadowColor: "#000",shadowOffset: {
           width: 0,
@@ -35,7 +34,7 @@ export default function NavigationBar() {
         <Tab.Screen name="Acceuil" component={HomeScreen}  options={{ tabBarItemStyle: [] ,tabBarIcon: ()=> (<MaterialCommunityIcons name="food-variant" size={30} color="black" />) }}/>
         <Tab.Screen name="Courses" component={ListScreen} options={{ tabBarItemStyle: [] ,tabBarIcon: ()=> (<AntDesign name="shoppingcart" size={30} color="black" />) }} />
      </Tab.Navigator>
-    </NavigationContainer>
+    
   )
 }
 

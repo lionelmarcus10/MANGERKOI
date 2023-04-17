@@ -3,10 +3,14 @@ import NavigationBar from './src/Mynav/Nav';
 import Login from './src/Log/LogIn';
 import SignUp from './src/Log/SignUp';
 import Start from './src/Log/Start';
+import LogStack from './src/Mynav/LogStack';
+import DisplayCardList from './src/Components/Design/DisplayCardList';
+import MainNav from './src/Mynav/MainNav';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Start/>
+      <MainNav/>
       <StatusBar/>
     </View>
   );
