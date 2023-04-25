@@ -14,8 +14,9 @@ const HomeScreen = ({navigation}) => {
   function random(){
     let RandomReciepe = new RequestToApis().RandomReciepe().then((data) => setRandomData(data) ) 
   }
-  function navigateTo(){
-    navigation.getParent().navigate("LogStack")
+  function navigateTo(dataList,titre){
+    console.log(dataList)
+    navigation.getParent().navigate("ReciepesOnCards",{title: titre, elements: JSON.stringify([...dataList])})
   }
   
   useEffect(() => {
@@ -105,7 +106,7 @@ const HomeScreen = ({navigation}) => {
               <TouchableOpacity>
                   <Text className="text-xl font-bold text-gray-400">Explorer</Text>
               </TouchableOpacity>
-              <Pressable onPress={random}>
+              <Pressable onPress={() => navigateTo(RandomData,"Explorer")}>
                 <MaterialIcons name="navigate-next" size={30} color="#BDBDBD" />
               </Pressable>
           </View>
@@ -116,7 +117,7 @@ const HomeScreen = ({navigation}) => {
                  horizontal={true}
                  showsHorizontalScrollIndicator={false}
                 renderItem={({item}) =>
-                <TouchableOpacity onPress={navigateTo}>
+                <TouchableOpacity onPress={random}>
                     <CardOne width={width/1.5} height={height/3.5} flex={2} imageUri={item.image} name={item.title} duration={item.readyInMinutes} display={false}  />
                 </TouchableOpacity> }
                 />

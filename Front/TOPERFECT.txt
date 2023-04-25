@@ -21,9 +21,10 @@ ListScreen.js
     - relier to firebase / database
 
 
--désactiver scrollbar
 
 - Logstack pop push : https://reactnavigation.org/docs/stack-navigator#animations
 
-
-- 
+----------------------------
+- account log for already users ( first log + localhost var for after ) 
+- recette display page + condition onclick + add to navigation 
+-----------------------------
