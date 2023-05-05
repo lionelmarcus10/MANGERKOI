@@ -10,7 +10,7 @@ const DisplayCardList = () => {
     <SafeAreaView>
       <ScrollView>
             <View className="flex flex-row flex-nowrap pt-6 justify-center items-center px-6">
-                <Text className="text-center font-medium text-3xl mx-auto pl-25 flex-1">{this.props.title}</Text>
+                <Text className="text-center font-medium text-3xl mx-auto pl-25 flex-1">{this.props.title}2222</Text>
                 <View className="justify-center items-center  w-[50px] h-[50px] sm:w-[70px] sm:h-[70px]">
                     <Image source={require('../../Assets/head.png')} className="w-full h-full rounded-full"/>
                 </View>

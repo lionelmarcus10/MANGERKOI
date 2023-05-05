@@ -1,5 +1,5 @@
 let API_KEY_SPOONCULAR = "19755ba3103c4b549ae9eea21ed0b206"
-let API_KEY_SPOONCULAR2 = ""
+let API_KEY_SPOONCULAR2 = "0779ffc16736401387035fc7fc83f6d7"
 
 /* template
 
@@ -7,7 +7,7 @@ let API_KEY_SPOONCULAR2 = ""
 
   - template exemple 
        
-       https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true.
+  - https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true.
   - Parameters for each function: [-intolerences-, -number-, cuisine,excludecuisine ]
 
 1 - random reciepe with components:  
@@ -49,7 +49,7 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=10`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR2}&number=20`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
@@ -60,13 +60,26 @@ class RequestToApis {
         title: RandomReciepe.recipes[rec].title,
         image: RandomReciepe.recipes[rec].image,
         readyInMinutes: RandomReciepe.recipes[rec].readyInMinutes,
-        //analyzedInstructions: RandomReciepe.recipes[rec].analyzedInstructions || lancer requette pour connaitre les ingredients et instructions
+        analyzedInstructions: RandomReciepe.recipes[rec].analyzedInstructions
       })
     }
     // return essential data
     return (RandomReciepeParsed)
   }
-  ReciepeById() {}
+  async ReciepeById(id) {
+    console.log("done")
+    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR}`
+    let infos = await fetch(url).then((response) => response.json())
+    // titre , image , difficulté , minute , instructions pour preparer
+    let infosParsed = {
+      title: infos["title"],
+      image: infos.image,
+      difficulty: "find difficulty",
+      readyInMinutes: infos.readyInMinutes,
+      instructions : infos.instructions,
+    };
+    return infosParsed;
+  }
   ReciepeByWordMatchInTitle() {}
   ReciepeByIngredients() {}
   IngredientCompositionById() {}

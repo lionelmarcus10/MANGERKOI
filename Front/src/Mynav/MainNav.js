@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LogStack from './LogStack';
 import NavigationBar from './Nav';
 import DisplayBlockCardReciepes from '../Components/Design/DisplayBlockCardReciepes';
-
+import Recieps from '../Components/Design/Recieps';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +17,7 @@ const MainNav = () => {
             <Stack.Screen name="TabMenu" component={NavigationBar}  />
             <Stack.Screen name="LogStack" component={LogStack} />
             <Stack.Screen name="ReciepesOnCards" component={DisplayBlockCardReciepes} />
+            <Stack.Screen name="Recieps" component={Recieps} />
         </Stack.Navigator>
     </NavigationContainer>
   )

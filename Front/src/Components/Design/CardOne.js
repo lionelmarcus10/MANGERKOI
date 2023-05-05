@@ -13,7 +13,7 @@ class CardOne extends Component {
   
     render() {
         return (
-            <View className="rounded-md bg-white" style={ [styles.shadow ,{ height: this.props.height, width: this.props.width, marginLeft: 10, borderWidth: 0.8, borderColor: '#dddddd' , marginRight: 8}]}>
+            <View className="rounded-xl bg-white" style={ [styles.shadow ,{ height: this.props.height, width: this.props.width, marginLeft: 10, borderWidth: 0.8, borderColor: '#dddddd' , marginRight: 8}]}>
                 <View style={{ flex: this.props.flex }}>
                     <Image className="rounded-t-md" source={{uri: this.props.imageUri}}
                         style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}

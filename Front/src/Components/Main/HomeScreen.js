@@ -15,20 +15,18 @@ const HomeScreen = ({navigation}) => {
     let RandomReciepe = new RequestToApis().RandomReciepe().then((data) => setRandomData(data) ) 
   }
   function navigateTo(dataList,titre){
-    console.log(dataList)
     navigation.getParent().navigate("ReciepesOnCards",{title: titre, elements: JSON.stringify([...dataList])})
   }
   
   useEffect(() => {
     random()
-    console.log('mount it!');
   },[]);
 
   return (
     <SafeAreaView>
       <ScrollView>
         <View className="flex flex-row flex-nowrap pt-6 justify-center items-center px-6">
-          <Text className="text-center font-medium text-3xl mx-auto pl-25 flex-1">Acceuil</Text>
+          <Text className="text-center font-medium text-3xl mx-auto pl-25 flex-1">Accueuil</Text>
           <View className="justify-center items-center  w-[50px] h-[50px] sm:w-[70px] sm:h-[70px]">
             <Image source={require('../../Assets/head.png')} className="w-full h-full rounded-full"/>
           </View>
