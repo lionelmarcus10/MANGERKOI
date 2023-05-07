@@ -49,7 +49,7 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR2}&number=20`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=20`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
@@ -60,14 +60,14 @@ class RequestToApis {
         title: RandomReciepe.recipes[rec].title,
         image: RandomReciepe.recipes[rec].image,
         readyInMinutes: RandomReciepe.recipes[rec].readyInMinutes,
-        analyzedInstructions: RandomReciepe.recipes[rec].analyzedInstructions
+        analyzedInstructions: RandomReciepe.recipes[rec]
       })
     }
     // return essential data
     return (RandomReciepeParsed)
   }
   async ReciepeById(id) {
-    console.log("done")
+    
     let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR}`
     let infos = await fetch(url).then((response) => response.json())
     // titre , image , difficulté , minute , instructions pour preparer

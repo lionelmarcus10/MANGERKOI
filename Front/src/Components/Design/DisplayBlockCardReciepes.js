@@ -7,9 +7,8 @@ const DisplayBlockCardReciepes = ( {navigation, route}) => {
   let dist = true ? route.params.title == "Vous avez aimé" : false
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
-  function navigateTo(identifiant, instruction ){
-    console.log(identifiant)
-    navigation.navigate("Recieps",{id: identifiant, instructions: instruction })
+  function navigateTo(identifiant, allTheData ){
+    navigation.navigate("Recieps",{id: identifiant, infos: allTheData })
   }
   return (
     <ScrollView showsVerticalScrollIndicator={false} className="">
@@ -26,7 +25,7 @@ const DisplayBlockCardReciepes = ( {navigation, route}) => {
                  maxToRenderPerBatch={10}
                  showsVerticalScrollIndicator={false}
                  renderItem={({item}) =>
-                    <TouchableOpacity className="mx-auto py-3" onPress={()=> {navigateTo(item.id,item.analyzedInstructions)}}>
+                    <TouchableOpacity className="mx-auto py-3" onPress={()=> {navigateTo(item.id,item)}}>
                         <CardOne width={width/1.15} height={height/3.5} flex={2} imageUri={item.image} name={item.title} duration={item.readyInMinutes} display={dist}  />
                     </TouchableOpacity> }
                 />
