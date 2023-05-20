@@ -1,3 +1,6 @@
 {
-  "urlRandomness": "GtV_hbo"
+  "urlRandomness": "GtV_hbo",
+  "dev": true,
+  "minify": false,
+  "https": false
 }

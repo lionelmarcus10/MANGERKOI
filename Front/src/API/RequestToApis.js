@@ -43,25 +43,31 @@ Part 2 :
 
 */
 
+
+
+
 class RequestToApis {
   constructor() {
     
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=20`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR2}&number=4`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
     let RandomReciepeParsed = [];
     for(let rec in RandomReciepe.recipes){
+            
       RandomReciepeParsed.push({
         id: RandomReciepe.recipes[rec].id,
         title: RandomReciepe.recipes[rec].title,
         image: RandomReciepe.recipes[rec].image,
         readyInMinutes: RandomReciepe.recipes[rec].readyInMinutes,
-        analyzedInstructions: RandomReciepe.recipes[rec]
+        instructions: Object.assign(RandomReciepe.recipes[rec].instructions)
+        
       })
+      console.log(RandomReciepe.recipes[rec].instructions)
     }
     // return essential data
     return (RandomReciepeParsed)
@@ -74,7 +80,6 @@ class RequestToApis {
     let infosParsed = {
       title: infos["title"],
       image: infos.image,
-      difficulty: "find difficulty",
       readyInMinutes: infos.readyInMinutes,
       instructions : infos.instructions,
     };

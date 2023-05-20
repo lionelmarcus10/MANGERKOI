@@ -46,6 +46,7 @@ export default function ListScreen({navigation}) {
         <View className="flex flex-col flex-nowrap justify-center items-start space-y-2">
           <Text className="text-xl font-bold text-gray-400 text-left">Dans les menus de cette semaine</Text>
           <View className="w-full">
+          <Text>hello </Text>
           <VirtualizedList
                   data={data_test}
                   initialNumToRender={1}

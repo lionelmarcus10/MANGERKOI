@@ -2,18 +2,30 @@ import { View, Text, ScrollView, Image,Dimensions } from 'react-native'
 import RequestToApis from '../../API/RequestToApis';
 import React, { useEffect, useState } from 'react';
 import { FontAwesome,AntDesign } from '@expo/vector-icons';
+import { set } from 'react-native-reanimated';
 const Recieps = ( {navigation, route}) => {
-  
+  function parseInstructions(text){
+    const regex = /(<([^>]+)>)/ig;
+    const textWithoutTags = text.replace(regex, "").replace("\n", "");
+    const sentences = textWithoutTags.split(".");
+    return sentences;
+  }
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
-  function loadRecieps(id){
-    let allInfos = new RequestToApis().ReciepeById(id).then((data) => setReciepsData(data));
-    console.log(route.params.infos.analyzedInstructions[0],"end")
-    console.log(ReciepsData)
+  function loadRecieps(){
+    //let allInfos = new RequestToApis().ReciepeById(id).then((data) => setReciepsData(data));
+    let k = parseInstructions(route.params.infos.instructions)
+    console.log(k.lenght, k[-1],"looooo")
+    setReciepsData(parseInstructions(route.params.infos.instructions))
+    if(ReciepsData[ReciepsData.length-1] == ""){
+      setReciepsData(ReciepsData.slice(0,ReciepsData.length-1))
+      console.log("looooo2")
+    }
+    console.log(ReciepsData[ReciepsData.length-1],"looooo")
   }
   useEffect(() => {
     
-    loadRecieps(route.params.id);
+    loadRecieps();
   },[]);
   let [ ReciepsData, setReciepsData ] = useState([])
   return (
@@ -60,7 +72,12 @@ const Recieps = ( {navigation, route}) => {
               <View>
                 <Text className="font-bold">Preparation</Text>
                 <View>
-
+                    {ReciepsData.map((sentence, index) => (
+                      <View className="">
+                        <Text>ETAPE {index+1}</Text>
+                        <Text key={index} className="font-bold">{sentence}</Text>
+                      </View>
+                    ))}
                 </View>
 
               </View>
