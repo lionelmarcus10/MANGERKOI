@@ -5,14 +5,22 @@ import SignUp from './src/Log/SignUp';
 import Start from './src/Log/Start';
 import LogStack from './src/Mynav/LogStack';
 import DisplayCardList from './src/Components/Design/DisplayCardList';
+
 import MainNav from './src/Mynav/MainNav';
+import { Provider } from 'react-redux'
+import { persistor, store } from './src/Store/Store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <MainNav/>
-      <StatusBar/>
-    </SafeAreaView>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor} >
+        <SafeAreaView style={styles.container}>
+          <MainNav/>
+          <StatusBar/>
+        </SafeAreaView>
+      </PersistGate>
+    </Provider>
   );
 }
 

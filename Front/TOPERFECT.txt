@@ -28,3 +28,9 @@ ListScreen.js
 - account log for already users ( first log + localhost var for after ) 
 - recette display page + condition onclick + add to navigation 
 -----------------------------
+
+
+# new api key to get data from spoonacular
+# function to get equipment and ingredients
+# buttun to add to favorite or not 
+# function to see if it is favorite or not

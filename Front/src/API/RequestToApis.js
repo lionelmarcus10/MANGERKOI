@@ -64,10 +64,8 @@ class RequestToApis {
         title: RandomReciepe.recipes[rec].title,
         image: RandomReciepe.recipes[rec].image,
         readyInMinutes: RandomReciepe.recipes[rec].readyInMinutes,
-        instructions: Object.assign(RandomReciepe.recipes[rec].instructions)
         
       })
-      console.log(RandomReciepe.recipes[rec].instructions)
     }
     // return essential data
     return (RandomReciepeParsed)

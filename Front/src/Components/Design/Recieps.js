@@ -13,21 +13,14 @@ const Recieps = ( {navigation, route}) => {
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
   function loadRecieps(){
-    //let allInfos = new RequestToApis().ReciepeById(id).then((data) => setReciepsData(data));
-    let k = parseInstructions(route.params.infos.instructions)
-    console.log(k.lenght, k[-1],"looooo")
-    setReciepsData(parseInstructions(route.params.infos.instructions))
-    if(ReciepsData[ReciepsData.length-1] == ""){
-      setReciepsData(ReciepsData.slice(0,ReciepsData.length-1))
-      console.log("looooo2")
-    }
-    console.log(ReciepsData[ReciepsData.length-1],"looooo")
+    let allInfos = new RequestToApis().ReciepeById(route.params.id).then((data) => setReciepsData(data));
+    console.log(ReciepsData.title)
   }
   useEffect(() => {
     
     loadRecieps();
   },[]);
-  let [ ReciepsData, setReciepsData ] = useState([])
+  let [ ReciepsData, setReciepsData ] = useState("")
   return (
     <ScrollView className="bg-gray-100">
       <View className="flex flex-row flex-nowrap pt-6 justify-center items-center px-6">
@@ -72,12 +65,7 @@ const Recieps = ( {navigation, route}) => {
               <View>
                 <Text className="font-bold">Preparation</Text>
                 <View>
-                    {ReciepsData.map((sentence, index) => (
-                      <View className="">
-                        <Text>ETAPE {index+1}</Text>
-                        <Text key={index} className="font-bold">{sentence}</Text>
-                      </View>
-                    ))}
+                    
                 </View>
 
               </View>
