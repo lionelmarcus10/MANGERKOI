@@ -16,7 +16,7 @@ const SignUp = ({navigation}) => {
     <View className="bg-[#F3F3F3]">
       <View className="h-full flex justify-between">
 
-        <View className="self-end">
+        <View className="self-end z-[-1]">
             <LogTop/>
             <View className="absolute top-9 left-44">
               <AddUser width={50} height={50}/>
@@ -32,7 +32,7 @@ const SignUp = ({navigation}) => {
               </TouchableOpacity>
         
               <View className="pb-4 space-y-2">
-                <Text className="font-bold text-md">Allergies alimentaires :</Text>
+                <Text className="font-bold text-md">Vous :</Text>
                 <TextInput placeholder="Mot de passe" className="bg-[#D9D9D9] p-1 rounded-xl"/>
               </View>
 
@@ -43,7 +43,7 @@ const SignUp = ({navigation}) => {
           </View>
         </View>
         
-        <View className="self-start">
+        <View className="self-start z-[-1]">
             <LogBottom/>
             <TouchableOpacity className="absolute bottom-6 right-40" onPress={navigation.goBack}>
               <FontAwesome name="long-arrow-left" size={35} color="white"/>

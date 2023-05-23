@@ -14,8 +14,8 @@ const MainNav = () => {
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="TabMenu" component={NavigationBar}  />
             <Stack.Screen name="LogStack" component={LogStack} />
+            <Stack.Screen name="TabMenu" component={NavigationBar}  />
             <Stack.Screen name="ReciepesOnCards" component={DisplayBlockCardReciepes} />
             <Stack.Screen name="Recieps" component={Recieps} />
         </Stack.Navigator>

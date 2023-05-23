@@ -1,12 +1,17 @@
 import { View,Image , Text, SafeAreaView, ScrollView,TextInput,Pressable, FlatList, VirtualizedList } from 'react-native'
 import React from 'react'
 import { SimpleLineIcons } from '@expo/vector-icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { listNeedAdd } from '../../Store/ListSlice';
+
 //
-const data_test =  ["Essuis tout","Sac poubelle", "Mouchoir en boite","Shampoing", "Piles AAA","Dentifrice","Produits WC"];
 const data_test2 = ["x3 Poirreaux","400g Lardons", "5 oignons", "700g Potiron","Muscade en poudre", "Olives vertes", "Basilic"];
 //
 export default function ListScreen({navigation}) {
-  
+  let [ InputAdd, setInputAdd ] = React.useState("")
+  let dispatch = useDispatch()
+  let get_list_need = useSelector(state => state.reducer.ListItem.list_need)
+  let get_list_menu = useSelector(state => state.reducer.ListItem.list_menu)
   return (
     <SafeAreaView className="px-6 space-y-5 sm:px-12">
         <View className="flex flex-row flex-nowrap pt-6 justify-center items-center">
@@ -19,23 +24,23 @@ export default function ListScreen({navigation}) {
             <View className="p-2 sm:p-3 flex flex-nowrap justify-center items-center">
               <SimpleLineIcons name="magnifier-add" size={20} color="black"/>
             </View>
-            <TextInput placeholder='Ajouter à la liste' className="p-1 sm:p-3 sm:text-lg font-bold w-full"/>
+            <TextInput placeholder='Ajouter à la liste' className="p-1 sm:p-3 sm:text-lg font-bold w-full" onChangeText={(value) => setInputAdd(value)} onSubmitEditing={()=> dispatch(listNeedAdd(InputAdd))}/>
         </View>
 
         <View className="flex flex-col flex-nowrap justify-center items-start space-y-2">
           <Text className="text-xl font-bold text-gray-400 text-left">Il vous faut</Text>
           <View className="w-full">
             <VirtualizedList
-                  data={data_test}
+                  data={get_list_need}
                   initialNumToRender={1}
                   keyExtractor={item => item.id} 
                   renderItem={({item}) => <Text className="py-[1.5px] font-bold text-[17px]">{item.name}</Text>} 
-                  getItemCount={(data) => data_test.length}
+                  getItemCount={(data) => get_list_need.length}
                   getItem={(data, index) => 
                     ({ 
                      key: index,
                      id: Math.random().toString(12).substring(0),
-                     name: `${data_test[index]}`
+                     name: `${get_list_need[index]}`
                     })
                   }
             />
@@ -47,16 +52,16 @@ export default function ListScreen({navigation}) {
           <Text className="text-xl font-bold text-gray-400 text-left">Dans les menus de cette semaine</Text>
           <View className="w-full">
           <VirtualizedList
-                  data={data_test}
+                  data={get_list_menu}
                   initialNumToRender={1}
                   keyExtractor={item => item.id} 
                   renderItem={({item}) => <Text className="py-[1.5px] font-bold text-[17px]">{item.name}</Text>} 
-                  getItemCount={(data) => data_test.length}
+                  getItemCount={(data) => get_list_menu.length}
                   getItem={(data, index) => 
                     ({ 
                      key: index,
                      id: Math.random().toString(12).substring(0),
-                     name: `${data_test2[index]}`
+                     name: `${get_list_menu[index]}`
                     })
                   }
             />

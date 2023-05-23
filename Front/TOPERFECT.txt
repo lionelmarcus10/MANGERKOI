@@ -17,8 +17,10 @@ LogInjs and SignUp.js
 
 ListScreen.js
     - add animation
-    - add state management 
     - relier to firebase / database
+    - map au lieu du VirtualizedList
+    - option delete
+    
 
 
 
