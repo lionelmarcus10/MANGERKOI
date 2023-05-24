@@ -5,51 +5,45 @@ import { app } from "./firebase.config";
     constructor() {
         this.auth = getAuth(app);
     }
-    Signup(email, password){
-        
+    SignUp(email, password) {
+      return new Promise((resolve, reject) => {
         createUserWithEmailAndPassword(this.auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
+          .then((userCredential) => {
             const user = userCredential.user;
-            console.log("Signup successfull")
-            return user
-            // ...
-        })
-        .catch(error => {
+            console.log("Signup successfull");
+            resolve(user);
+          })
+          .catch((error) => {
             if (error.code === 'auth/email-already-in-use') {
-              console.log('That email address is already in use!');
+              reject('That email address is already in use!');
             }
-        
             if (error.code === 'auth/invalid-email') {
-              console.log('That email address is invalid!');
+              reject('That email address is invalid!');
             }
-  
           });
-          
+      });
     }
-   Login(email, password){
-        let message = ""
+    
+    Login(email, password) {
+      return new Promise((resolve, reject) => {
         signInWithEmailAndPassword(this.auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            message = "Login successfull"
-            return message
-        })
-        .catch((error) => {
-          if (error.code === 'auth/invalid-email') {
-            message = "L'email saisi est incorrect"
-          }
-          if (error.code === 'auth/wrong-password') {
-            message = "Le mot de passe est incorrect"
-          }
-          if (error.code === 'auth/user-not-found') {
-            message = "L'email et le mot de passe sont incorrects"
-          }
-            
-        });
-        
+          .then((userCredential) => {
+            resolve("Login successfull");
+          })
+          .catch((error) => {
+            if (error.code === 'auth/invalid-email') {
+              reject("L'email saisi est incorrect");
+            }
+            if (error.code === 'auth/wrong-password') {
+              reject("Le mot de passe est incorrect");
+            }
+            if (error.code === 'auth/user-not-found') {
+              reject("L'email et le mot de passe sont incorrects");
+            }
+          });
+      });
     }
+    
   Logout(){
       signOut(this.auth).then(() => {
         // Sign-out successful.

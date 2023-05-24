@@ -1,13 +1,3 @@
-Start.js
-
-    - add buttun with pressable
-    - add link 
-    - add animation
-
-LogoDisplay:
-    - add animation
-    - Link to Start.js
-
 LogInjs and SignUp.js
     - add animation
     - add log verification infos before switch
@@ -21,11 +11,6 @@ ListScreen.js
     - map au lieu du VirtualizedList
     - option delete
     
-
-
-
-- Logstack pop push : https://reactnavigation.org/docs/stack-navigator#animations
-
 ----------------------------
 - account log for already users ( first log + localhost var for after ) 
 - recette display page + condition onclick + add to navigation 
@@ -36,3 +21,8 @@ ListScreen.js
 # function to get equipment and ingredients
 # buttun to add to favorite or not 
 # function to see if it is favorite or not
+
+
+------------------------------------------------
+regler la partie inscription 
+regler vous avez aimé ( store synchronisation )

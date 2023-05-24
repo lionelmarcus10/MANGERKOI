@@ -6,14 +6,16 @@ import LogStack from './LogStack';
 import NavigationBar from './Nav';
 import DisplayBlockCardReciepes from '../Components/Design/DisplayBlockCardReciepes';
 import Recieps from '../Components/Design/Recieps';
-
+import { useSelector } from 'react-redux';
 const Stack = createStackNavigator();
 
 
 const MainNav = () => {
+  let connected = useSelector(state => state.reducer.LogItem.connected)
+  let myIinitRoot = connected ? 'TabMenu' : 'LogStack'
   return (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={myIinitRoot}>
             <Stack.Screen name="LogStack" component={LogStack} />
             <Stack.Screen name="TabMenu" component={NavigationBar}  />
             <Stack.Screen name="ReciepesOnCards" component={DisplayBlockCardReciepes} />
