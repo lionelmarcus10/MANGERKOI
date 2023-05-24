@@ -29,7 +29,9 @@ export default function NavigationBar() {
         shadowRadius: -30,
         elevation: 5,
       }],tabBarShowLabel: false ,
-      }}>
+      }}
+      initialRouteName='Acceuil'
+      >
         <Tab.Screen name="Menu" component={MenuScreen} options={{ tabBarItemStyle: [] ,tabBarIcon: ()=> (<MaterialIcons name="restaurant-menu" size={30} color="black" />) }} />
         <Tab.Screen name="Acceuil" component={HomeScreen}  options={{ tabBarItemStyle: [] ,tabBarIcon: ()=> (<MaterialCommunityIcons name="food-variant" size={30} color="black" />) }}/>
         <Tab.Screen name="Courses" component={ListScreen} options={{ tabBarItemStyle: [] ,tabBarIcon: ()=> (<AntDesign name="shoppingcart" size={30} color="black" />) }} />
