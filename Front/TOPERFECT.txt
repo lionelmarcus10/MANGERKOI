@@ -1,10 +1,3 @@
-LogInjs and SignUp.js
-    - add animation
-    - add log verification infos before switch
-    - add link to NavButtun.js
-    - link icons to return back
-    - box shadow BUTTUN 
-
 ListScreen.js
     - add animation
     - relier to firebase / database
@@ -24,5 +17,5 @@ ListScreen.js
 
 
 ------------------------------------------------
-regler la partie inscription 
+regler la partie inscription ( image picking )
 regler vous avez aimé ( store synchronisation )

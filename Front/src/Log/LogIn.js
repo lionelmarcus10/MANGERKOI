@@ -1,13 +1,12 @@
 import { View, Text,TextInput, TouchableOpacity, ImageBackground,StyleSheet } from 'react-native'
-import React, { useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import LogTop from '../Assets/LogTop.svg'
 import LogBottom from '../Assets/LogBottom.svg'
 import AddUser from '../Assets/AddUser.svg'
 import {FontAwesome} from '@expo/vector-icons'
 import Authfunc from '../Firebase/Auth'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeConnected, changeEmail, changeName, changePassword, changePrenom, resetlog } from '../Store/LogSlice'
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry'
+import { changeConnected, changeEmail, changePassword, changePrenom, resetlog } from '../Store/LogSlice'
 
 
 const Login = ({navigation}) => {
@@ -23,7 +22,6 @@ const Login = ({navigation}) => {
         dispatch(changeEmail(mail))
         dispatch(changePassword(password))
         dispatch(changeConnected(true))
-        console.log('connected', get_connected_state)
         navigation.navigate('TabMenu')
       })
       .catch((error) => {
@@ -69,7 +67,7 @@ const Login = ({navigation}) => {
 
         <View className="self-start z-[-1]">
             <LogBottom/>
-            <TouchableOpacity className="absolute bottom-6 right-40" onPress={()=>{navigation.goBack}}>
+            <TouchableOpacity className="absolute bottom-6 right-40" onPress={navigation.goBack}>
               <FontAwesome name="long-arrow-left" size={35} color="white"/>
             </TouchableOpacity>
         </View>

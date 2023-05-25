@@ -9,9 +9,8 @@ import { app } from "./firebase.config";
       return new Promise((resolve, reject) => {
         createUserWithEmailAndPassword(this.auth, email, password)
           .then((userCredential) => {
-            const user = userCredential.user;
-            console.log("Signup successfull");
-            resolve(user);
+            
+            resolve("Signup successfull");
           })
           .catch((error) => {
             if (error.code === 'auth/email-already-in-use') {
