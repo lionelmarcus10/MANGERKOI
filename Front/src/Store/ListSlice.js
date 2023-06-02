@@ -42,7 +42,7 @@ const listSlice = createSlice({
     },
     removeMenu(state, action) {
       state.list_menu =  state.list_menu.filter(item => item !== action.payload);
-    }
+    },
   }
 })
 

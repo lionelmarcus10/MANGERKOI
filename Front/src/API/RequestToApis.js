@@ -1,6 +1,10 @@
 let API_KEY_SPOONCULAR = "19755ba3103c4b549ae9eea21ed0b206"
 let API_KEY_SPOONCULAR2 = "0779ffc16736401387035fc7fc83f6d7"
-
+let API_KEY_SPOONCULAR3 =  "5e773dd22d5c48f38df7cc7ceced3cb7"
+let API_KEY_SPOONCULAR4 =  "975ae81d293e40059d980c515b0e1ea5"
+let API_KEY_SPOONCULAR5 =  "17a6d5b859eb4d52bb1ad2d73b54cacb"
+let API_KEY_SPOONCULAR6 = "f1bfeed93f9b413284018064dbbd9dee"
+let API_KEY_SPOONCULAR7 = "1985422c7a604b6e98aebcdc6c763b85"
 /* template
 
   - first parameter => ? others => &
@@ -52,7 +56,7 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR2}&number=4`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=20`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
@@ -72,7 +76,7 @@ class RequestToApis {
   }
   async ReciepeById(id) {
     
-    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR}`
+    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR3}`
     let infos = await fetch(url).then((response) => response.json())
     // titre , image , difficulté , minute , instructions pour preparer
     let infosParsed = {
@@ -82,6 +86,25 @@ class RequestToApis {
       instructions : infos.instructions,
     };
     return infosParsed;
+  }
+  async MultipleReciepeByIds(ids){
+    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR}&ids=${ids.join(",")}`
+    let MultipleReciepesByIds = await fetch(url).then((response) => response.json())
+    
+    let MultipleReciepesByIdsParsed = [];
+    
+    for(let rec in MultipleReciepesByIds){
+            
+        MultipleReciepesByIdsParsed.push({
+        id: MultipleReciepesByIds[rec].id,
+        title: MultipleReciepesByIds[rec].title,
+        image: MultipleReciepesByIds[rec].image,
+        readyInMinutes: MultipleReciepesByIds[rec].readyInMinutes,
+        
+      })
+    }
+    // return essential data
+    return (MultipleReciepesByIdsParsed)
   }
   ReciepeByWordMatchInTitle() {}
   ReciepeByIngredients() {}

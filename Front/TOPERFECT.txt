@@ -4,18 +4,11 @@ ListScreen.js
     - map au lieu du VirtualizedList
     - option delete
     
-----------------------------
-- account log for already users ( first log + localhost var for after ) 
 - recette display page + condition onclick + add to navigation 
 -----------------------------
-
-
-# new api key to get data from spoonacular
 # function to get equipment and ingredients
-# buttun to add to favorite or not 
-# function to see if it is favorite or not
-
-
-------------------------------------------------
-regler la partie inscription ( image picking )
-regler vous avez aimé ( store synchronisation )
+# pick photo inscription + localstorage photo + storage firebase_photo
+-----------------------------
+# add bouton planification in recieps components 
+# add ingredients to list of course 
+# add checkbox to list of course and link with store 

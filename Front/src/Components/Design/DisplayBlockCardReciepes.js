@@ -2,6 +2,7 @@ import { View, Text, FlatList, Image, TouchableOpacity, Dimensions } from 'react
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import CardOne from './CardOne'
+import { useEffect, useMemo } from 'react'
 
 const DisplayBlockCardReciepes = ( {navigation, route}) => {
   let dist = true ? route.params.title == "Vous avez aimé" : false
@@ -10,6 +11,8 @@ const DisplayBlockCardReciepes = ( {navigation, route}) => {
   function navigateTo(identifiant, allTheData ){
     navigation.navigate("Recieps",{id: identifiant, infos: allTheData })
   }
+
+
   return (
     <ScrollView showsVerticalScrollIndicator={false} className="">
       <View className="flex flex-row flex-nowrap pt-6 justify-center items-center px-6">
