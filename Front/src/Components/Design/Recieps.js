@@ -50,6 +50,11 @@ const Recieps = ( {navigation, route}) => {
     liked.includes(route.params.id) ? setColor("green") : setColor("black")
     }
   console.log(get_data_state)
+    // supprimer le console log
+
+    // fonction pour afficher les instructions et afficher sous forme de card les inngrédients
+    
+    
   return (
     <ScrollView className="bg-gray-100">
       <View className="flex flex-row flex-nowrap pt-6 justify-center items-center px-6">

@@ -56,19 +56,21 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=20`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR7}&number=20`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
     let RandomReciepeParsed = [];
     for(let rec in RandomReciepe.recipes){
-            
+      let [steps, ingredientIds] = this.extractStepsAndIngredients(RandomReciepe.recipes[rec])
+      
       RandomReciepeParsed.push({
         id: RandomReciepe.recipes[rec].id,
         title: RandomReciepe.recipes[rec].title,
         image: RandomReciepe.recipes[rec].image,
         readyInMinutes: RandomReciepe.recipes[rec].readyInMinutes,
-        
+        allsteps: steps,
+        allingredients: ingredientIds,
       })
     }
     // return essential data
@@ -76,31 +78,37 @@ class RequestToApis {
   }
   async ReciepeById(id) {
     
-    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR3}`
+    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR5}`
     let infos = await fetch(url).then((response) => response.json())
+    let [steps, ingredientIds] = this.extractStepsAndIngredients(infos)
     // titre , image , difficulté , minute , instructions pour preparer
     let infosParsed = {
       title: infos["title"],
       image: infos.image,
       readyInMinutes: infos.readyInMinutes,
       instructions : infos.instructions,
+      allsteps: steps,
+      allingredients: ingredientIds,
     };
     return infosParsed;
   }
   async MultipleReciepeByIds(ids){
-    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR}&ids=${ids.join(",")}`
+    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR6}&ids=${ids.join(",")}`
     let MultipleReciepesByIds = await fetch(url).then((response) => response.json())
     
     let MultipleReciepesByIdsParsed = [];
     
+
     for(let rec in MultipleReciepesByIds){
-            
-        MultipleReciepesByIdsParsed.push({
+      let [steps, ingredientIds] = this.extractStepsAndIngredients(MultipleReciepesByIds[rec]);  
+           
+      MultipleReciepesByIdsParsed.push({
         id: MultipleReciepesByIds[rec].id,
         title: MultipleReciepesByIds[rec].title,
         image: MultipleReciepesByIds[rec].image,
         readyInMinutes: MultipleReciepesByIds[rec].readyInMinutes,
-        
+        allsteps: steps,
+        allingredients: ingredientIds,
       })
     }
     // return essential data
@@ -120,6 +128,35 @@ class RequestToApis {
     
     // return essential data
   }
+
+  extractStepsAndIngredients(data) {
+    let stepList = [];
+    let ingredientIdList = [];
+
+    if (data.hasOwnProperty('analyzedInstructions') && data.analyzedInstructions.length > 0) {
+        for (let instruction of data.analyzedInstructions) {
+            if (instruction.hasOwnProperty('steps')) {
+                for (let step of instruction.steps) {
+                    // Add the step text to the stepList
+                    if (step.hasOwnProperty('step')) {
+                        stepList.push(step.step);
+                    }
+                    
+                    // Add the ingredient ids to the ingredientIdList
+                    if (step.hasOwnProperty('ingredients')) {
+                        for (let ingredient of step.ingredients) {
+                            if (ingredient.hasOwnProperty('id')) {
+                                ingredientIdList.push(ingredient.id);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return [stepList, ingredientIdList];
+  }
+  
 }
 
 export default RequestToApis

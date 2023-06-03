@@ -4,9 +4,8 @@ import { SimpleLineIcons } from '@expo/vector-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { listNeedAdd } from '../../Store/ListSlice';
 
-//
-const data_test2 = ["x3 Poirreaux","400g Lardons", "5 oignons", "700g Potiron","Muscade en poudre", "Olives vertes", "Basilic"];
-//
+// fonction pour ajouter un item à la liste de course à avoir et modifier le store en consequence ( list_need )
+// checkbox pour suppromer du stre et de la liste de course
 export default function ListScreen({navigation}) {
   let [ InputAdd, setInputAdd ] = React.useState("")
   let dispatch = useDispatch()

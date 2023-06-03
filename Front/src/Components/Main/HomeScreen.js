@@ -34,7 +34,9 @@ const HomeScreen = ({navigation}) => {
   function navigateTo(dataList,titre){
     navigation.getParent().navigate("ReciepesOnCards",{title: titre, elements: JSON.stringify([...dataList])})
   }
-  
+  function navigateToReciep(identifiant, allTheData ){
+    navigation.navigate("Recieps",{id: identifiant, infos: allTheData })
+  }
   useEffect(() => {
     random();
     canDOLoad();
@@ -127,7 +129,7 @@ const HomeScreen = ({navigation}) => {
         
         <View className="">
           <View className="py-4 flex flex-row flex-nowrap justify-between px-3">
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>random()}>
                   <Text className="text-xl font-bold text-gray-400">Explorer</Text>
               </TouchableOpacity>
               <Pressable onPress={() => navigateTo(RandomData,"Explorer")}>
@@ -141,7 +143,7 @@ const HomeScreen = ({navigation}) => {
                  horizontal={true}
                  showsHorizontalScrollIndicator={false}
                 renderItem={({item}) =>
-                <TouchableOpacity onPress={random}>
+                <TouchableOpacity onPress={()=> navigateToReciep(item.id,item)}>
                     <CardOne width={width/1.5} height={height/3.5} flex={2} imageUri={item.image} name={item.title} duration={item.readyInMinutes} display={false}  />
                 </TouchableOpacity> }
                 />
@@ -165,7 +167,7 @@ const HomeScreen = ({navigation}) => {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
             renderItem={({item}) =>
-            <TouchableOpacity onPress={likedLoad}>
+            <TouchableOpacity onPress={()=> navigateToReciep(item.id,item)}>
                 <SmallCardOne imageUri={item.image} name={item.title}/>
             </TouchableOpacity> }
             />)
