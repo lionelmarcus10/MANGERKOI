@@ -53,6 +53,5 @@ OU
 Démonstration du projet Frig's
 
 
-https://github.com/lionelmarcus10/MANGERKOI/assets/104082976/dc5edbb3-ad96-4467-ac7a-f2a2dd9f667d
 
 
