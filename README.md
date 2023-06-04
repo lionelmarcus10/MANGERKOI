@@ -48,10 +48,12 @@ OU
 
 
     
-## 📹 Démonstration 
+## 📹 Démonstration + Publicité
 
 Démonstration du projet Frig's
 
+https://github.com/lionelmarcus10/MANGERKOI/assets/104082976/769ef34a-c3ad-484b-bf4c-ad7504d3278d
 
+Publicité du projet Frig's
 
-
+Uploading pub_frigs.mp4…
