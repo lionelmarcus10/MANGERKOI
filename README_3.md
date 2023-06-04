@@ -24,7 +24,7 @@ Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votr
 ### Installation :
 #### Clôner le depôt github :
 ```bash
-    git clone https://github.com/lionelmarcus10/...
+    git clone https://github.com/lionelmarcus10/MANGERKOI
 ```
 
 #### Naviguer dans le répertoire `Front` :
