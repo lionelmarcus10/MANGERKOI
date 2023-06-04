@@ -56,4 +56,8 @@ https://github.com/lionelmarcus10/MANGERKOI/assets/104082976/769ef34a-c3ad-484b-
 
 Publicité du projet Frig's
 
-Uploading pub_frigs.mp4…
+
+
+https://github.com/lionelmarcus10/MANGERKOI/assets/104082976/800e7129-01b0-4d33-8aea-1036f69605cd
+
+
