@@ -24,7 +24,7 @@ Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votr
 ### Installation :
 #### Clôner le depôt github :
 ```bash
-    git clone https://github.com/lionelmarcus10/...
+    git clone https://github.com/lionelmarcus10/MANGERKOI
 ```
 
 #### Naviguer dans le répertoire `Front` :
@@ -52,4 +52,7 @@ OU
 
 Démonstration du projet Frig's
 
-[![Démo](https://tenor.com/view/github-cat-kitty-waiting-loading-gif-25774588)](https://www.youtube.com/watch?v=kJQP7kiw5Fk&ab_channel=LuisFonsiVEVO)
+
+https://github.com/lionelmarcus10/MANGERKOI/assets/104082976/dc5edbb3-ad96-4467-ac7a-f2a2dd9f667d
+
+
