@@ -5,6 +5,14 @@ let API_KEY_SPOONCULAR4 =  "975ae81d293e40059d980c515b0e1ea5"
 let API_KEY_SPOONCULAR5 =  "17a6d5b859eb4d52bb1ad2d73b54cacb"
 let API_KEY_SPOONCULAR6 = "f1bfeed93f9b413284018064dbbd9dee"
 let API_KEY_SPOONCULAR7 = "1985422c7a604b6e98aebcdc6c763b85"
+
+
+let API_KEY_SPOONCULAR8 = "f3dac90d8e1c4301ae37ce46d4737c07"
+let API_KEY_SPOONCULAR9 = "c236ee42d2c64509ba7a9e4f3df5c2a9"
+let API_KEY_SPOONCULAR10 = "8df1e9df5d8e4e21a291ee366196648b"
+let API_KEY_SPOONCULAR11 = "66b8250596d748bf8f514c11d09ce3a5"
+let API_KEY_SPOONCULAR12 = "e374b49ead10457987e60a917236b6c3"
+let API_KEY_SPOONCULAR13 = "19572c5cfa2b4b018c11642c78742abc"
 /* template
 
   - first parameter => ? others => &
@@ -56,7 +64,7 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR7}&number=20`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=20`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
@@ -93,7 +101,7 @@ class RequestToApis {
     return infosParsed;
   }
   async MultipleReciepeByIds(ids){
-    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR6}&ids=${ids.join(",")}`
+    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR5}&ids=${ids.join(",")}`
     let MultipleReciepesByIds = await fetch(url).then((response) => response.json())
     
     let MultipleReciepesByIdsParsed = [];
@@ -141,19 +149,18 @@ class RequestToApis {
                     if (step.hasOwnProperty('step')) {
                         stepList.push(step.step);
                     }
-                    
-                    // Add the ingredient ids to the ingredientIdList
-                    if (step.hasOwnProperty('ingredients')) {
-                        for (let ingredient of step.ingredients) {
-                            if (ingredient.hasOwnProperty('id')) {
-                                ingredientIdList.push(ingredient.id);
-                            }
-                        }
-                    }
                 }
             }
         }
     }
+    // Add the ingredient ids to the ingredientIdList
+    if (data.hasOwnProperty('extendedIngredients')) {
+      for (let ingredient of data.extendedIngredients) {
+          if (ingredient.hasOwnProperty('image') && ingredient.hasOwnProperty('name')) {
+              ingredientIdList.push({id: ingredient.id ,image: ingredient.image,name: ingredient.name});
+          }
+      }
+  }
     return [stepList, ingredientIdList];
   }
   

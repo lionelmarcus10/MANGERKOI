@@ -2,16 +2,8 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
-import RequestToApis from '../API/RequestToApis';
 
 const Start = ({navigation}) => {
-  const test  = () => {
-    console.log("test");
-    const tester = new RequestToApis;
-    console.log(tester.ProductInfoByQrCode("3254690670501"));
-    
-
-  };
 
   return (
     <View className="bg-[#597E61] h-full flex flex-row flex-nowrap justify-center items-center space-x-8">

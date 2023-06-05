@@ -79,19 +79,19 @@ const HomeScreen = ({navigation}) => {
             >
 
                 <Category imageUri={require("../../Assets/img1.jpg")}
-                    name="Home"
+                    name="oil"
                 />
                 <Category imageUri={require("../../Assets/img1.jpg")}
-                    name="Experiences"
+                    name="vinegra"
                 />
                 <Category imageUri={require("../../Assets/img1.jpg")}
-                    name="Resturant"
+                    name="onion"
                 />
                 <Category imageUri={require("../../Assets/img1.jpg")}
-                    name="Resturant"
+                    name="tomato"
                 />
                 <Category imageUri={require("../../Assets/img1.jpg")}
-                    name="Resturant"
+                    name="avocado"
                 />
 
             </ScrollView>
@@ -120,8 +120,8 @@ const HomeScreen = ({navigation}) => {
           }
           {
             !get_data_state.list_canDO.length > 0 && (
-              <View className="flex flex-row flex-nowrap justify-center items-center">
-                <Text className="text-lg font-bold text-black">Les ingrédients que vous avez ne vous permettent pas de faire une quelconque recette</Text>
+              <View className="flex flex-row flex-nowrap justify-center items-center px-8">
+                <Text className="text-lg font-bold text-center text-gray-500">Les ingrédients que vous avez ne vous permettent pas de faire une quelconque recette</Text>
               </View>
             ) 
           }

@@ -6,6 +6,7 @@ import { listNeedAdd } from '../../Store/ListSlice';
 
 // fonction pour ajouter un item à la liste de course à avoir et modifier le store en consequence ( list_need )
 // checkbox pour suppromer du stre et de la liste de course
+// option pour planification ( boutton avec modal pour ajouter )
 export default function ListScreen({navigation}) {
   let [ InputAdd, setInputAdd ] = React.useState("")
   let dispatch = useDispatch()
