@@ -64,7 +64,7 @@ class RequestToApis {
   }
   async RandomReciepe() {
     // url 
-    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR}&number=20`
+    let url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY_SPOONCULAR11}&number=20`
     // fetch request
     let RandomReciepe = await fetch(url).then((response) => response.json())
     // parse json
@@ -86,7 +86,7 @@ class RequestToApis {
   }
   async ReciepeById(id) {
     
-    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR5}`
+    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_SPOONCULAR9}`
     let infos = await fetch(url).then((response) => response.json())
     let [steps, ingredientIds] = this.extractStepsAndIngredients(infos)
     // titre , image , difficulté , minute , instructions pour preparer
@@ -101,7 +101,7 @@ class RequestToApis {
     return infosParsed;
   }
   async MultipleReciepeByIds(ids){
-    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR5}&ids=${ids.join(",")}`
+    let url=`https://api.spoonacular.com/recipes/informationBulk?apiKey=${API_KEY_SPOONCULAR10}&ids=${ids.join(",")}`
     let MultipleReciepesByIds = await fetch(url).then((response) => response.json())
     
     let MultipleReciepesByIdsParsed = [];
@@ -133,7 +133,7 @@ class RequestToApis {
     // fetch request
     let ProductInfoByQrCode = await fetch(url).then((response) => response.json())
     // parse json
-    
+    console.log(ProductInfoByQrCode)
     // return essential data
   }
 

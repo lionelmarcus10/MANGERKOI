@@ -121,7 +121,7 @@ const HomeScreen = ({navigation}) => {
           {
             !get_data_state.list_canDO.length > 0 && (
               <View className="flex flex-row flex-nowrap justify-center items-center px-8">
-                <Text className="text-lg font-bold text-center text-gray-500">Les ingrédients que vous avez ne vous permettent pas de faire une quelconque recette</Text>
+                <Text className="text-lg font-bold text-center text-black">Les ingrédients que vous avez ne vous permettent pas de faire une quelconque recette</Text>
               </View>
             ) 
           }

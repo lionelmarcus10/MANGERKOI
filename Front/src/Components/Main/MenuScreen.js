@@ -55,8 +55,9 @@ export default function MenuScreen() {
           <Button onPress={() => {dispatch(resetPlanification()), console.log('reset planifications', get_planification_state ) } }>reset all planifications</Button>
           <Button onPress={() => {dispatch(resetList()),console.log("reset of all data in homescreen", get_data_state)}}>reset all homescreen data </Button>
           <Button onPress={() => {dispatch(add_to_list_canDO(633160))} }>add to can do </Button>
-          <Button onPress={()=> console.log(store.getState().reducer)}>View all the Store</Button>  
-        </View>    
+          <Button onPress={()=> console.log(store.getState().reducer)}>View the Store</Button>  
+        </View>
+       
     </ScrollView>
     </SafeAreaView>
   )
